@@ -39,4 +39,11 @@ void main() {
   bts.sayName();          // ❶ 부모한테 물려받은 메서드
   bts.sayMembersCount();  // ❷ 부모한테 물려받은 메서드
   bts.sayMale();          // ❸ 자식이 새로 추가한 메서드
+
+  BoyGroup seventeen = BoyGroup('세븐틴', 13);  // 생성자로 객체 생성
+
+  seventeen.sayName();          // ❶ 부모한테 물려받은 메서드
+  seventeen.sayMembersCount();  // ❷ 부모한테 물려받은 메서드
+  seventeen.sayMale();          // ❸ 자식이 새로 추가한 메서드
+
 }
