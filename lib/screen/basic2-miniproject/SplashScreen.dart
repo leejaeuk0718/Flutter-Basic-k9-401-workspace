@@ -24,13 +24,21 @@ class _SplashScreenState extends State<SplashScreen> {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Center(child: Text('환영합니다!',
+          children: [
+            const Center(child: Text('환영합니다!',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold))),
-            SizedBox(height: 20),
-            Center(child: FlutterLogo(size: 100)),
-            SizedBox(height: 20),
-            Center(child: CircularProgressIndicator()),
+            const SizedBox(height: 20),
+            Center(
+                // child: FlutterLogo(size: 100)
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.contain,
+                ),
+            ),
+            const SizedBox(height: 20),
+            const Center(child: CircularProgressIndicator()),
           ],
         ),
       ),

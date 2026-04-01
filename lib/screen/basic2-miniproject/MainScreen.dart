@@ -12,7 +12,16 @@ class MainScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Center(child: FlutterLogo(size: 100)),
+            // const Center(child: FlutterLogo(size: 100)),
+            Center(
+              // child: FlutterLogo(size: 100)
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: 200,
+                height: 200,
+                fit: BoxFit.contain,
+              ),
+            ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '/signup'),
