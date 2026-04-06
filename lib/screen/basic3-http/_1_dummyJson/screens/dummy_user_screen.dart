@@ -1,4 +1,5 @@
 // lib/features/_2_reqres/screens/dummy_user_screen.dart
+import 'package:busanit_401_k9_flutter_project/screen/basic3-http/_1_dummyJson/screens/dummy_user_detail_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/dummy_user.dart';
 import '../services/dummy_user_service.dart';
@@ -104,14 +105,30 @@ class _DummyUserScreenState extends State<DummyUserScreen> {
             itemBuilder: (context, index) {
               final user = users[index];
               return ListTile(
+                // 목록 요소를 클릭시, 이벤트 처리하는 코드 추가
+                onTap: () {
+                  // 클릭시, 이동할 네비게이션 옵션 이용하기. 스택에 새 위젯을 추가.
+                  // 원래는 라우팅시, 라우팅 스크린에 등록해서, 일괄 작업했지만,
+                  // 유저 정보를 주입 해야해서, 바로 라우팅 하기.
+                  // Navigator.pushNamed(context, '/dummyDetailScreen'),
+                  Navigator.push(context, // 알아두기, 따로 , 라우팅 하는 방법
+                      MaterialPageRoute(
+                          builder: (context) => DummyUserDetailScreen(user: user))
+                  );
+                },
+                // 목록 요소를 클릭시, 이벤트 처리하는 코드 추가
                 contentPadding:
                 const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 // 아바타 이미지
-                leading: CircleAvatar(
-                  radius: 28,
-                  backgroundImage: NetworkImage(user.image),
-                  onBackgroundImageError: (_, __) {},
-                  backgroundColor: Colors.grey.shade200,
+                leading: Hero( // Hero :공유 요소 전환 라고 부름,
+                  // 효과 : 화면 전환시, A 화면에 있던 특정 위젯, B화면의 새위치로 자연스럽게 날아가는 효과
+                  tag: 'avatar_${user.id}',
+                  child: CircleAvatar(
+                    radius: 28,
+                    backgroundImage: NetworkImage(user.image),
+                    onBackgroundImageError: (_, __) {},
+                    backgroundColor: Colors.grey.shade200,
+                  ),
                 ),
                 // 전체 이름
                 title: Text(

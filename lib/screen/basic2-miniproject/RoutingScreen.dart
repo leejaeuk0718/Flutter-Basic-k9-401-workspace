@@ -1,4 +1,5 @@
 import 'package:busanit_401_k9_flutter_project/screen/basic2-miniproject/TabBarScreen.dart';
+import 'package:busanit_401_k9_flutter_project/screen/basic3-http/_1_dummyJson/screens/dummy_user_detail_screen.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic3-http/_3_news_api/screens/news_screen.dart';
 import 'package:busanit_401_k9_flutter_project/screen/basic3-http/_4_public_data_1_earthquake/screens/PublicDataScreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,6 +35,8 @@ class RoutingScreen extends StatelessWidget {
         // API 서버 호출 테스트
         '/reqresTest': (context) => const ReqresScreen(),
         '/dummyTest': (context) => const DummyUserScreen(),
+        // 상세 화면 이동 라우팅 추가, /dummyDetailScreen -> 파라미터 , 유저 정보를 주입해야해서,
+        // '/dummyDetailScreen': (context) => const DummyUserDetailScreen(user: user),
         '/newsTest': (context) => const NewsScreen(),
         '/publicDataTest': (context) => const PublicDataScreen(),
 
